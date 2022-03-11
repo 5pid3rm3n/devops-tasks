@@ -38,7 +38,6 @@ services:
       - app
 
   connector:
-    # image: confluentinc/cp-kafka-connect-base:latest
     hostname: connect
     container_name: connect
     build:
