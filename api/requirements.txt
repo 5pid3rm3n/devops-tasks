@@ -1,0 +1,12 @@
+asgiref==3.5.0
+click==8.0.4
+crc32c==2.2.post0
+fastapi==0.68.2
+h11==0.13.0
+kafka-python==2.0.2
+msgpack==1.0.3
+pydantic==1.9.0
+pymongo==4.0.2
+starlette==0.14.2
+typing_extensions==4.1.1
+uvicorn==0.15.0
