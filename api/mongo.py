@@ -5,7 +5,7 @@ class mongo():
 
     def __init__(self) -> object:
 
-        _client = MongoClient()
+        _client = MongoClient('mongodb://mongo:27017/')
 
         # set db name 
         _db = _client['items']
