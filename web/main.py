@@ -18,10 +18,10 @@ prodocer = producer()
 async def buy_item():
 
     # get random item
-    data.item, data.price = random.choice(list(random_items.items()))
+    data['item'], data['price'] = random.choice(list(random_items.items()))
     
     # set timestamp
-    data.timestamp = str(datetime.utcnow())
+    data['timestamp'] = str(datetime.utcnow())
 
     # produce new item to kafka
     prodocer.send('my-topic', data)

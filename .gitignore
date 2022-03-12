@@ -1,3 +1,7 @@
 # created by virtualenv automatically
 .vscode
+lib
+scripts
+__pycache*
+pyvenv*
 
