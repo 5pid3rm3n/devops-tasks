@@ -7,5 +7,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build the stack
         run: docker-compose up -d
-      - name: Test
+      - name: Test - Buy Item
         run: docker run --network devops-tasks_app appropriate/curl -s --retry 20 --retry-connrefused http://web/buy/
+      - name: Test - Get Item List
+        run: docker run --network devops-tasks_app appropriate/curl -s --retry 20 --retry-connrefused http://web/get-all-user_buys/
