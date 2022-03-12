@@ -80,8 +80,8 @@ services:
     networks:
       - app
 
-  connect-init:
-    container_name: connect-init
+  connector-init:
+    container_name: connector-init
     build: 
       context: ./api/shell
       dockerfile: ./shell.Dockerfile
