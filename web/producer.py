@@ -1,10 +1,11 @@
 from kafka import KafkaProducer
-import msgpack
+# import msgpack
+import json
 
 
 def producer():
 
-    return KafkaProducer(security_protocol="PLAINTEXT",value_serializer=msgpack.dumps, bootstrap_servers=['kafka:9092'])
+    return KafkaProducer(security_protocol="PLAINTEXT",value_serializer=lambda v: json.dumps(v).encode('utf-8'), bootstrap_servers=['kafka:9092'])
 
 def on_send_success(record_metadata):
     print(record_metadata.topic)
