@@ -7,8 +7,6 @@ services:
     image: 'bitnami/zookeeper:latest'
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
-    ports:
-      - '2181:2181'
     networks:
       - app
 
@@ -23,8 +21,6 @@ services:
       - ALLOW_PLAINTEXT_LISTENER=yes
     depends_on:
       - zookeeper
-    ports:
-      - '9092:9092'
     networks:
       - app
 
@@ -32,8 +28,6 @@ services:
     image: mongo
     container_name: mongo
     restart: always
-    ports:
-      - '27017:27017'
     networks:
       - app
 
@@ -72,8 +66,6 @@ services:
     build: 
       context: ./api
       dockerfile: ./api.Dockerfile
-    ports:
-      - '3000:3000'
     depends_on:
       - kafka
       - mongo
