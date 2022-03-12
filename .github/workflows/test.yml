@@ -8,4 +8,4 @@ jobs:
       - name: Build the stack
         run: docker-compose up -d
       - name: Test
-        run: docker run --network devops-tasks_app appropriate/curl -i --retry 10 --retry-connrefused http://web/buy/
+        run: docker run --network devops-tasks_app appropriate/curl -s --retry 20 --retry-connrefused http://web/buy/
