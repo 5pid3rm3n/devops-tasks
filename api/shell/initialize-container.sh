@@ -1,12 +1,12 @@
 #!/bin/sh
-# exponential back off as kafka connect starts
-curl --connect-timeout 5 \
-     --max-time 10 \
-     --retry 15 \
-     --retry-delay 0 \
-     --retry-max-time 80 \
-     --retry-connrefused \
-     -X POST -H "Content-Type: application/json" --data @sink-connector.json http://connect:8083/connectors -w "\n"
 
-# print all connectors added to kafka connect
-curl -X GET http://connect:8083/connectors
+
+# get status code to check connector api is up
+STATUS_CODE=$(curl -I http://connect:8083/connectors 2>/dev/null | grep 200 | awk '{print $2}')
+
+if [[ $STATUS_CODE -eq 200 ]]; then
+# add sink data to connector
+  curl -X POST -H "Content-Type: application/json" --data @sink-connector.json http://connect:8083/connectors -w "\n"
+else
+       exit 1
+fi

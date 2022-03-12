@@ -8,6 +8,6 @@ WORKDIR /init-connector
 
 COPY . .
 
-RUN chmod +x ./initialize-container.sh
+RUN chmod +x initialize-container.sh
 
-CMD './initialize-container.sh' 
+CMD ["/bin/bash", "initialize-container.sh"]
