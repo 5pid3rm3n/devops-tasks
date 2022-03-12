@@ -1,5 +1,7 @@
 # devops-tasks
 
+[![Docker Compose Actions Workflow](https://github.com/5pid3rm3n/devops-tasks/actions/workflows/test.yml/badge.svg)](https://github.com/5pid3rm3n/devops-tasks/actions/workflows/test.yml)
+
 The stack is built out of 5 services: 
 - Kafka, monogoDB, MongoConnect, api & web-server
 
