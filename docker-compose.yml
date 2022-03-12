@@ -80,8 +80,8 @@ services:
     networks:
       - app
 
-  shell:
-    container_name: init
+  connect-init:
+    container_name: connect-init
     build: 
       context: ./api/shell
       dockerfile: ./shell.Dockerfile
@@ -105,7 +105,7 @@ services:
       - kafka
       - zookeeper
       - mongo
-      - connect
+      - connector
     networks:
       - app
 
