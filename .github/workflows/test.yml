@@ -7,6 +7,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build the stack
         run: docker-compose up -d
+      - name: Wait / Sleep
+        uses: jakejarvis/wait-action@v0.1.1
+        with:
+          time: 2m
       - name: Test - Buy Item
         run: docker run --network devops-tasks_app appropriate/curl -s --retry 20 --retry-connrefused http://web/buy/
       - name: Test - Get Item List
