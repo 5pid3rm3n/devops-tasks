@@ -1,4 +1,4 @@
-from datatime import datatime
+from datetime  import datetime
 from fastapi import FastAPI
 from web.producer import producer
 from web.api_consumer import consume
@@ -21,7 +21,7 @@ async def buy_item():
     data.item, data.price = random.choice(list(random_items.items()))
     
     # set timestamp
-    data.timestamp = str(datatime.utcnow())
+    data.timestamp = str(datetime.utcnow())
 
     # produce new item to kafka
     prodocer.send('my-topic', data)
