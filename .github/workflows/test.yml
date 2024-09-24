@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build the stack
-        run: docker-compose up -d
+        run: docker compose up -d
       - name: Wait / Sleep
         uses: jakejarvis/wait-action@v0.1.1
         with:
