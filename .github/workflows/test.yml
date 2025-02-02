@@ -5,13 +5,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      # Build the stack using Docker Compose
       - name: Build the stack
         run: docker compose up -d
+      # Wait for services to start
       - name: Wait / Sleep
         uses: jakejarvis/wait-action@v0.1.1
         with:
           time: 2m
+      # Test the Buy Item route
       - name: Test - Buy Item
         run: docker run --network devops-tasks_app appropriate/curl -s --retry 20 --retry-connrefused http://web/buy/
+      # Test the Get Item List route
       - name: Test - Get Item List
         run: docker run --network devops-tasks_app appropriate/curl -s --retry 20 --retry-connrefused http://web/get-all-user_buys/
